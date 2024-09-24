@@ -9,6 +9,8 @@ import About from "../components/About";
 import Category from "../components/Category";
 import Services from "../components/Services";
 import Colors from "../components/Colors";
+import Blogs from "../components/Blogs";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   const { loading, error, data } = useQuery(GET_HOMEPAGE_DATA);
@@ -20,12 +22,14 @@ const HomePage = () => {
   const categoryRef = useRef(null);
   const servicesRef = useRef(null);
   const colorsRef = useRef(null);
+  const blogsRef = useRef(null);
+  const footerRef = useRef(null);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   const { homepage } = data.pages.nodes[0];
-  console.log(homepage, "homepage");
+  console.log(data, "homepage");
 
   // Scroll to a specific section
   const handleScroll = (ref) => {
@@ -54,6 +58,12 @@ const HomePage = () => {
             case "Colors":
               handleScroll(colorsRef);
               break;
+            case "Blogs":
+              handleScroll(blogsRef);
+              break;
+            case "Footer":
+              handleScroll(footerRef);
+              break;
             default:
               break;
           }
@@ -73,6 +83,12 @@ const HomePage = () => {
       </div>
       <div ref={colorsRef}>
         <Colors colors={homepage} />
+      </div>
+      <div ref={blogsRef}>
+        <Blogs blogs={data.blogs.nodes} />
+      </div>
+      <div ref={footerRef}>
+        <Footer />
       </div>
     </div>
   );

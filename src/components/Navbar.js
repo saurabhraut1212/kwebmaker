@@ -11,7 +11,7 @@ const Navbar = ({ onScrollToSection }) => {
         />
       </div>
       <div className="flex space-x-16 absolute" style={{ left: '388px', top: '39px' }}>
-        {['MainPage', 'About', 'Category', 'Services', 'Colors'].map((section) => (
+        {['MainPage', 'About', 'Category', 'Services', 'Colors','Blogs','Footer'].map((section) => (
           <button 
             key={section} 
             onClick={() => onScrollToSection(section)}

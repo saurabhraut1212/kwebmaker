@@ -1,7 +1,6 @@
 import React from "react";
 
 const MainPage = ({ homepage }) => {
-  console.log(homepage, "hp");
   return (
     <div
       className="bg-cover bg-center w-screen h-screen relative"
